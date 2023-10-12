@@ -1,82 +1,163 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Nacional</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Alura Space</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/styles/style.css' %}">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Cadastro Nacional</h1>
-        <form>
-            <div class="form-group">
-                <label for="nome">Nome Completo:</label>
-                <input type="text" id="nome" name="nome" required>
+    <div class="pagina-inicial">
+        <header class="cabecalho">
+            <img src="{% static '/assets/logo/Logo(2).png'  %}" alt="Logo da Alura Space" />
+            <div class="cabecalho__busca">
+                <div class="busca__fundo">
+                    <input class="busca__input" type="text" placeholder="O que você procura?">
+                    <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png'  %}" alt="ícone de search">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="sexualidade">Sexualidade:</label>
-                <select id="sexualidade" name="sexualidade">
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="outro">Outro</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" required>
-            </div>
-            <div class="form-group">
-                <label for="rg">RG:</label>
-                <input type="text" id="rg" name="rg" required>
-            </div>
-            <div class="form-group">
-                <label for="endereco">Endereço:</label>
-                <input type="text" id="endereco" name="endereco" required>
-            </div>
-            <button type="submit">Cadastrar</button>
-        </form>
+        </header>
+        <main class="principal">
+            <section class="menu-lateral">
+                <nav class="menu-lateral__navegacao">
+                    <a href="#"><img src="{% static '/assets/ícones/1x/Home - ativo.png'  %}"> Home</a>
+                    <a href="#"><img src="{% static '/assets/ícones/1x/Mais vistas - inativo.png'  %}"> Mais vistas</a>
+                    <a href="#"><img src="{% static '/assets/ícones/1x/Novas - inativo.png'  %}"> Novas</a>
+                    <a href="#"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png'  %}"> Surpreenda-me</a>
+                </nav>
+            </section>
+            <section class="conteudo">
+                <section class="banner">
+                    <img class="banner__imagem" src="{% static '/assets/imagens/Banner(2).png'  %}" alt="banner Alura Space">
+                    <h1 class="banner__titulo"> A galeria mais completa de fotos do espaço!</h1>
+                </section>
+                <section class="tags">
+                    <p class="tags__titulo">Busque por tags:</p>
+                    <ul class="tags__lista">
+                        <li class="tags__tag">Nebulosa</li>
+                        <li class="tags__tag">Estrela</li>
+                        <li class="tags__tag">Galáxia</li>
+                        <li class="tags__tag">Planeta</li>
+                    </ul>
+                </section>
+                <section class="galeria">
+                    <div class="cards">
+                        <h2 class="cards__titulo">Navegue pela galeria</h2>
+                        <ul class="cards__lista">
+                            <li class="card">
+                                <a href="{% url 'imagem' %}"> 
+                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/carina-nebula.png'  %}" alt="foto">
+                                </a>
+                                <span class="card__tag">Estrelas</span>
+                                <div class="card__info">
+                                    <p class="card__titulo">Nome da foto</p>
+                                    <div class="card__texto">
+                                        <p class="card__descricao">Fonte/fotógrafo/satélite</p>
+                                        <span>
+                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png'  %}" alt="ícone de coração">
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="card">
+                                <a href="{% url 'imagem' %}">
+                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/carina-nebula.png'  %}" alt="foto">
+                                </a>
+                                <span class="card__tag">Estrelas</span>
+                                <div class="card__info">
+                                    <p class="card__titulo">Nome da foto</p>
+                                    <div class="card__texto">
+                                        <p class="card__descricao">Fonte/fotógrafo/satélite</p>
+                                        <span>
+                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png'  %}" alt="ícone de coração">
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="card">
+                                <a href="{% url 'imagem' %}">
+                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/carina-nebula.png'  %}" alt="foto">
+                                </a>
+                                <span class="card__tag">Estrelas</span>
+                                <div class="card__info">
+                                    <p class="card__titulo">Nome da foto</p>
+                                    <div class="card__texto">
+                                        <p class="card__descricao">Fonte/fotógrafo/satélite</p>
+                                        <span>
+                                            <img src="/assets/ícones/1x/favorite_outline.png'  %}" alt="ícone de coração">
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="card">
+                                <a href="{% url 'imagem' %}">
+                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/carina-nebula.png'  %}" alt="foto">
+                                </a>
+                                <span class="card__tag">Estrelas</span>
+                                <div class="card__info">
+                                    <p class="card__titulo">Nome da foto</p>
+                                    <div class="card__texto">
+                                        <p class="card__descricao">Fonte/fotógrafo/satélite</p>
+                                        <span>
+                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png'  %}" alt="ícone de coração">
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="card">
+                                <a href="{% url 'imagem' %}">
+                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/carina-nebula.png'  %}" alt="foto">
+                                </a>
+                                <span class="card__tag">Estrelas</span>
+                                <div class="card__info">
+                                    <p class="card__titulo">Nome da foto</p>
+                                    <div class="card__texto">
+                                        <p class="card__descricao">Fonte/fotógrafo/satélite</p>
+                                        <span>
+                                           <img src="{% static '/assets/ícones/1x/favorite_outline.png'  %}" alt="ícone de coração"> 
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="card">
+                                <a href="{% url 'imagem' %}"> 
+                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/carina-nebula.png'  %}" alt="foto">
+                                </a>
+                                <span class="card__tag">Estrelas</span>
+                                <div class="card__info">
+                                    <p class="card__titulo">Nome da foto</p>
+                                    <div class="card__texto">
+                                        <p class="card__descricao">Fonte/fotógrafo/satélite</p>
+                                        <span>
+                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png'  %}" alt="ícone de coração">
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </main>
     </div>
+    <footer class="rodape">
+        <div class="rodape__icones">
+            <a href="https://twitter.com/AluraOnline" target=”_blank” >
+                <img src="{% static '/assets/ícones/1x/twitter.png'  %}" alt="ícone twitter">
+            </a>
+            <a href="https://www.instagram.com/aluraonline/" target=”_blank” >
+                <img src="{% static '/assets/ícones/1x/instagram.png'  %}" alt="ícone instagram">
+            </a>
+        </div>
+        <p class="rodape__texto">Desenvolvido por Alura</p>
+    </footer>
 </body>
+
 </html>
